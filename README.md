@@ -1,3 +1,5 @@
+# All credit to the creators below! This version of the repo is setup with CPU support + changes to imports for easier usage.
+
 # Frozen️ in Time ❄️️️️️⏳
 A Joint Video and Image Encoder for End-to-End Retrieval
 ----
