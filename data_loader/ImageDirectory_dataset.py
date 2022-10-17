@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import glob
 
-from base.base_dataset import TextImageDataset
+from ..base.base_dataset import TextImageDataset
 
 
 class ImageDirectory(TextImageDataset):

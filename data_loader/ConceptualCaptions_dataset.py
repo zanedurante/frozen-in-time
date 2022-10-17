@@ -3,7 +3,7 @@ import zlib
 
 import pandas as pd
 
-from base.base_dataset import TextImageDataset
+from ..base.base_dataset import TextImageDataset
 
 
 class ConceptualCaptions3M(TextImageDataset):

@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import glob
 
-from base.base_dataset import TextVideoDataset
+from ..base.base_dataset import TextVideoDataset
 
 class VideoDirectory(TextVideoDataset):
     def _load_metadata(self):

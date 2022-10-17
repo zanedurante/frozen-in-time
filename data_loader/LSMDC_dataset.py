@@ -3,7 +3,7 @@ import os
 import numpy as np
 import pandas as pd
 
-from base.base_dataset import TextVideoDataset
+from ..base.base_dataset import TextVideoDataset
 
 
 class LSMDC(TextVideoDataset):

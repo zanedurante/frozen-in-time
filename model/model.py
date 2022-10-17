@@ -4,10 +4,10 @@ import torch.nn as nn
 import torch.nn.functional as F
 from transformers import AutoModel
 
-from base import BaseModel
-from model.video_transformer import SpaceTimeTransformer
-from utils.util import state_dict_data_parallel_fix
-
+from ..base import BaseModel
+from .video_transformer import SpaceTimeTransformer
+from ..utils.util import state_dict_data_parallel_fix
+import pdb
 
 class FrozenInTime(BaseModel):
     def __init__(self,
@@ -16,8 +16,10 @@ class FrozenInTime(BaseModel):
                  projection_dim=256,
                  load_checkpoint=None,
                  projection='minimal',
-                 load_temporal_fix='zeros'):
+                 load_temporal_fix='zeros',
+                 use_cuda=True):
         super().__init__()
+        print("use cuda:", use_cuda)
 
         self.video_params = video_params
         self.text_params = text_params
@@ -74,7 +76,11 @@ class FrozenInTime(BaseModel):
         self.vid_proj = vid_proj
 
         if load_checkpoint not in ["", None]:
-            checkpoint = torch.load(load_checkpoint)
+            if use_cuda:
+                checkpoint = torch.load(load_checkpoint)
+            else:
+                checkpoint = torch.load(load_checkpoint, map_location=torch.device('cpu'))
+
             state_dict = checkpoint['state_dict']
             new_state_dict = state_dict_data_parallel_fix(state_dict, self.state_dict())
             new_state_dict = self._inflate_positional_embeds(new_state_dict)

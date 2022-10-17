@@ -1,11 +1,11 @@
-from base import BaseDataLoaderExplicitSplit, BaseMultiDataLoader
-from data_loader.ConceptualCaptions_dataset import ConceptualCaptions3M
-from data_loader.LSMDC_dataset import LSMDC
-from data_loader.MSRVTT_dataset import MSRVTT
-from data_loader.WebVid_dataset import WebVid
-from data_loader.VideoDirectory_dataset import VideoDirectory, CMDShotFeats
-from data_loader.ImageDirectory_dataset import ImageDirectory
-from data_loader.transforms import init_transform_dict
+from ..base import BaseDataLoaderExplicitSplit, BaseMultiDataLoader
+from ..data_loader.ConceptualCaptions_dataset import ConceptualCaptions3M
+from ..data_loader.LSMDC_dataset import LSMDC
+from ..data_loader.MSRVTT_dataset import MSRVTT
+from ..data_loader.WebVid_dataset import WebVid
+from ..data_loader.VideoDirectory_dataset import VideoDirectory, CMDShotFeats
+from ..data_loader.ImageDirectory_dataset import ImageDirectory
+from ..data_loader.transforms import init_transform_dict
 
 
 def dataset_loader(dataset_name,

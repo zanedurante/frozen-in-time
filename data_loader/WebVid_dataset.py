@@ -2,7 +2,7 @@ import os
 
 import pandas as pd
 
-from base.base_dataset import TextVideoDataset
+from ..base.base_dataset import TextVideoDataset
 
 
 class WebVid(TextVideoDataset):
